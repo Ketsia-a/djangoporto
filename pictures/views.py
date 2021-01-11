@@ -27,7 +27,7 @@ def search_image(request):
         images = Image.search_by_category(category)
         context = {'images':images, 'locations': locations}
 
-        return render(request, 'search.html', {"images":images, 'locations': locations, 'category1':category1})
+        return render(request, 'search.html',context)
 
     else:
         flash = 'Your search is empty'

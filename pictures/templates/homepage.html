@@ -1,0 +1,50 @@
+ {%extends 'base.html'%} {% block content %}
+<div class="jumbotron" style="background-image:url('https://www.immunosensation-blog.de/wp-content/uploads/2019/11/COLOURBOX25235053_supplier_224708_medium-1024x684.jpg');background-size: cover; background-position: center;height: 600px;">
+</div>
+<div>
+    <h1 class="text-center" style="letter-spacing: 5px;font-family: 'Hachi Maru Pop', cursive;;">
+        <strong>Gallery</strong></h1>
+
+</div>
+<div class="container-fluid" style="margin-top:50px; background-color: darkslategray;">
+    <div class="text-center">
+        {% for location in locations %}
+        <a class="mr-1 badge badge-info" href="/location/{{location.name}}" style="margin:8px">{{location.name}}</a> {% endfor %}
+    </div>
+    <hr>
+    <div class="card-columns">
+        {% for image in images %}
+        <div class="card" data-toggle="modal" data-target="#{{image.id}}">
+            {% if image.image %}
+            <img alt="{{image.name}}" class="card-img" src="{{image.image.url}}">
+        </div>
+        <div class="modal fade " id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                <div class="modal-content modalcard">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageheader">{{image.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{image.image.url}}" alt="{{image.name}}" class="img-fluid">
+                        <p class="imgdesc" style="padding-top: 10px;">Description:<span style="font-weight: bold;">{{image.description}}</span></p>
+                        <p>Category:<span style="font-weight: bold;">{{image.category}}</span></p>
+                        <button class="mr-1 badge badge-info"><i
+                               class="fas fa-location-arrow"></i>{{image.location}}</button>
+                    </div>
+                    <div class="modal-footer ">
+                        <input type="text" value="{{image.image.url}}" id="myInput" style="border: 0px; border-bottom: 1px solid black; outline: none;">
+                        <button class="btn btn-dark btn-sm" onclick="myFunction()"><i class="fas fa-link"></i>
+                           Copy image</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p></p>
+        {% endif %} {% endfor %}
+    </div>
+</div>
+{% endblock %}

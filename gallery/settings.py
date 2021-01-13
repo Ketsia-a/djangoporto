@@ -74,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gallery.wsgi.application'
 
-
+SECRET_KEY='5y(8-%zf)t@ho&3m9tx=hzu84)tuc%6ey^3wi4y@3@i$pd*k%y'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 

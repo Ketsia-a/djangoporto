@@ -11,7 +11,7 @@
 
  #  *Ketsia Iragena*
  
- ##GALLERY
+ ## GALLERY
  This is a website that allows you to view pictures and click on them to view more description on  them. You can also click on tags to view pictures tanken from a specific place.
  
 
